@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+body {
+font-family: Arial, sans-serif;
+margin: 40px;
+background: #fcb4b4; }
+.container {
+max-width: 400px;
+margin: auto;
+padding: 20px;
+background: #e6c2f7;
+border-radius: 10px;
+box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+input, button {
+width: 100%;
+padding: 10px;
+margin: 8px 0;
+border-radius: 6px;
+border: 1px solid #ff0000;}
+button {
+background: #007bff;
+color: white;
+border: none;
+cursor: pointer; }
+button:hover {
+background: #0056b3; }
+.result {
+margin-top: 15px;
+font-weight: bold;
+color: rgb(205, 255, 205); }
+</style></head>
+<body>
+<div class="container">
+<h2>HOTWHEELS </h2> 
+<form id="CARS LIST" method="POST" action="/Hotwheels">
+<h3>Mainlines</h3>
+<div id="Mainlines-checkboxes">
+ <label><input type="checkbox" name="cars" value="Ferrari spyder"> Ferrari spyder - ₹899</label><br>
+ <label><input type="checkbox" name="cars" value="Mustang GTD"> Mustang GTD - ₹658</label><br>
+ <label><input type="checkbox" name="cars" value="Ford gt"> Ford gt - ₹800</label><br>
+ <label><input type="checkbox" name="cars" value="Dodge Viper"> Dodge Viper - ₹750</label><br>
+</div>
+<h3>Fantasies</h3>
+<div id="Fantasies-checkboxes">
+ <label><input type="checkbox" name="cars" value="Batomobile"> Batomobile - ₹167</label><br>
+ <label><input type="checkbox" name="cars" value="Crocodile"> Crocodile - ₹167</label><br>
+ <label><input type="checkbox" name="cars" value="Croc road"> Croc road - ₹167</label><br>
+ <label><input type="checkbox" name="cars" value="Shark Bite"> Shark Bite - ₹167</label><br>
+</div>
+<h3>Premiums</h3>
+<div id="Premiums-checkboxes">
+ <label><input type="checkbox" name="cars" value="95 Camaro"> 95 Camaro - ₹1200</label><br>
+ <label><input type="checkbox" name="cars" value="78 Porsche"> 78 Porsche - ₹2100</label><br>
+ <label><input type="checkbox" name="cars" value="Volkswagen Bettle"> Volkswagen Bettle - ₹1500</label><br>
+ <label><input type="checkbox" name="cars" value="Agera r"> Agera r - ₹2200</label><br>
+</div>
+<button type="submit">Order</button>
+ </form>
+ {% if error %}
+ <div class="result" style="color: red;">{{ error }}</div>
+ {% endif %}
+ </div>
+ <script>
+ const items = {
+     "Mainlines": [
+         {name: "Ferrari spyder", price: 899},
+         {name: "Mustang GTD", price: 658},
+         {name: "Ford gt", price: 800},
+         {name: "Dodge Viper", price: 750},
+         
+     ],
+     "Fantasies": [
+         {name: "Batomobile", price: 167},
+         {name: "Crocodile", price: 167},
+         {name: "Croc road", price: 167},
+         {name: "Shark Bite", price: 167},
+        
+     ],
+     "premiums": [
+         {name: "Chocolate Cake", price: 1200},
+         {name: "Vanilla Cake", price: 2100},
+         {name: "Ice Cream", price: 1500},
+         {name: "Cupcake", price: 2200},
+
+     ]
+ };
+
+ document.getElementById("category").addEventListener("change", function() {
+     const category = this.value;
+     const itemCheckboxes = document.getElementById("cars-checkboxes");
+     itemCheckboxes.innerHTML = '';
+     if (category && cars[category]) {
+         items[category].forEach(carsObj => {
+             const label = document.createElement("label");
+             const checkbox = document.createElement("input");
+             checkbox.type = "checkbox";
+             checkbox.name = "cars";
+             checkbox.value = cars.name;
+             label.appendChild(checkbox);
+             label.appendChild(document.createTextNode(" " + itemObj.name + " - ₹" + carsObj.price));
+             itemCheckboxes.appendChild(label);
+             itemCheckboxes.appendChild(document.createElement("br"));
+         });
+     }
+ });
+ </script>
+</body>
+</html>
+ </script>
+</body>
+</html
+
